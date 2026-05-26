@@ -8,7 +8,8 @@ An experimental repository that builds ROOT 6.38.04 on Windows using **clang-cl 
 
 [ROOT](https://root.cern/) is a data analysis framework developed by CERN. On Windows, it officially supports only MSVC compilation.  
 This project adapts the ROOT source code so that it can be compiled with the **Clang/LLVM toolchain (clang-cl) and the Ninja build system**.  
-With the help of [xwin](https://github.com/Jake-Shadle/xwin), developers **no longer need a full Visual Studio installation** — only header files and import libraries are required to start building. At runtime, only the [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) is needed.The current branch is based on the official ROOT version [6.38.04](https://github.com/root-project/root/releases/tag/v6-38-04).  
+With the help of [xwin](https://github.com/Jake-Shadle/xwin), developers **no longer need a full Visual Studio installation** — only header files and import libraries are required to start building. At runtime, only the [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) is needed.  
+The current branch is based on the official ROOT version [6.38.04](https://github.com/root-project/root/releases/tag/v6-38-04).  
 
 ## Advantages
 
@@ -64,9 +65,9 @@ If you obtained the system libraries through xwin, you must specify their locati
     If you are using Visual Studio Build Tools, you can either open a "Developer Command Prompt" (or verify that the environment variables for the SDK and CRT headers and libraries are already set); the script is not needed.
 
 4. One‑click build  
-Double‑click build.bat. The script will automatically:
+Run `build.bat` in the terminal where the environment variables have already been set. The script will automatically:
     - Set environment variables for clang-cl, lld-link, and llvm-ml
-    - Create the build directory (the one specified by BUILD_DIR in build.bat)
+    - Create the build directory (the one specified by `BUILD_DIR` in `build.bat`)
     - Run CMake to generate Ninja build files (Release mode)
     - Start a multi‑threaded compilation
 

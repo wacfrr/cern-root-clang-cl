@@ -6,7 +6,8 @@
 
 [ROOT](https://root.cern/) 是 CERN 开发的数据分析框架，官方在 Windows 上仅支持通过 MSVC 编译。  
 本项目通过一系列源码适配，使 ROOT 能够使用 **Clang/LLVM 工具链（clang-cl）配合 Ninja 构建系统**完成编译。  
-同时借助 [xwin](https://github.com/Jake-Shadle/xwin) 工具，开发者**无需安装完整的 Visual Studio**，只需下载头文件和导入库即可开始编译；运行时则仅依赖 [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe)。当前分支基于 ROOT 官方版本 [6.38.04](https://github.com/root-project/root/releases/tag/v6-38-04)。  
+同时借助 [xwin](https://github.com/Jake-Shadle/xwin) 工具，开发者**无需安装完整的 Visual Studio**，只需下载头文件和导入库即可开始编译；运行时则仅依赖 [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe)。  
+当前分支基于 ROOT 官方版本 [6.38.04](https://github.com/root-project/root/releases/tag/v6-38-04)。  
 
 ## 优势
 
@@ -58,7 +59,7 @@ xwin --accept-license splat --include-debug-libs --output C:\xwin-libs
     执行前请打开脚本，将 $XWIN_OUTPUT 修改为你的 xwin 的实际的输出目录。  
     如果你使用的是 Visual Studio Build Tools，可检查环境变量中是否包含 SDK 和 CRT 的头文件和库的路径或者打开「开发人员命令提示符」开始编译，无需此脚本。
 4. 一键构建  
-    双击运行 `build.bat`，脚本将自动：
+    在已经配置好环境变量的终端中运行 `build.bat`，脚本将自动：
     - 配置 clang-cl、lld-link、llvm-ml 的环境变量
     - 创建构建目录，默认为 `build.bat` 中 `BUILD_DIR` 所指定的路径
     - 使用 CMake 生成 Ninja 构建文件（Release 模式）
