@@ -30,6 +30,9 @@ if(MSVC)
   add_custom_command(TARGET root.exe POST_BUILD
                      COMMAND ${CMAKE_MT} -manifest ${ROOT_MANIFEST} -outputresource:${CMAKE_BINARY_DIR}/bin/root.exe)
 endif()
+if(MSVC AND CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    target_link_options(root.exe PRIVATE "/MANIFEST:EMBED" "/MANIFESTINPUT:${ROOT_MANIFEST} ")
+endif()
 
 if(MSVC)
   ROOT_EXECUTABLE(hadd hadd.cxx LIBRARIES Core RIO Net Hist Graf Graf3d Gpad Tree Matrix MathCore CMAKENOEXPORT)
