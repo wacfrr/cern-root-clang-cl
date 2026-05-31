@@ -1639,7 +1639,8 @@ gdk_wchar_text_handle(GdkFont * font,
       }
 
       if (!list)
-         singlefont = NULL;
+         singlefont = (GdkWin32SingleFont *) private->fonts->data;
+         //singlefont = NULL;
 
       GDK_NOTE(MISC,
                g_print("%d:%d:%d ", start - wcstr, wcp - wcstr, block));

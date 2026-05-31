@@ -295,7 +295,7 @@ gint
 gdk_nmbstowchar_ts(wchar_t * dest,
                    const gchar * src, gint src_len, gint dest_max)
 {
-#if 1
+#if 0
    return mbstowcs(dest, src, src_len);
 #else
    wchar_t *wcp;
