@@ -59,5 +59,7 @@ SET(SRC_FILES
 )
 
 ADD_LIBRARY(${LIB_NAME} STATIC ${H_FILES} ${SRC_FILES})
-
+if(WIN32 AND CMAKE_C_COMPILER_ID MATCHES "Clang")
+  target_compile_options(${LIB_NAME} PRIVATE -Wno-incompatible-pointer-types)
+endif()
 install(TARGETS ${LIB_NAME} DESTINATION ${LIB_DESTINATION})
